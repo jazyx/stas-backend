@@ -18,6 +18,7 @@ const schema = Schema({
   videoId: { type: String, required },
   thumbnail: { type: String, required },
   year: { type: Number, required },
+  vo: { type: String, required },
   width: { type: Number, required },
   height: { type: Number, required },
   languages: { type: [srtScheme], required }

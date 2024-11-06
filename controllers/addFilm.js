@@ -9,6 +9,7 @@ function addFilm(req, res) {
     videoId,
     thumbnail,
     year,
+    vo,
     width,
     height,
     languages
@@ -19,6 +20,7 @@ function addFilm(req, res) {
     videoId,
     thumbnail,
     year,
+    vo,
     width,
     height,
     languages
