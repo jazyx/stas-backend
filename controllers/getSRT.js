@@ -17,18 +17,22 @@ function getSRT(req, res) {
 
   Film.findOne(
       { videoId, "languages.lang": lang },
-      { "languages.file": 1, title: 1 }
+      { "languages": 1, title: 1 }
     )
     .then(treatSuccess)
     .catch(treatError)
     .finally(proceed)
 
   async function treatSuccess(results) {
-    console.log("results:", results);
+    // console.log("results:", results);
     // {
     //   _id: new ObjectId('672a6e7ed04deb2a63a2a4bd'),
     //   title: 'Temple Grandin',
-    //   languages: [ { file: 'TempleGrandinENUS.srt' } ]
+    //   languages: [{
+    //     lang: 'en_US',
+    //     file: 'TempleGrandin_2010_EN.srt',
+    //     _id: ObjectId('672b034da7c9b091dfa7a016')
+    //   }]
     // } 
     
     if (!results) {
@@ -40,7 +44,8 @@ function getSRT(req, res) {
       const { title, languages } = results
 
       if (languages && languages.length) {
-        const file = join(SRT_PATH, languages[0].file)
+        const srt = languages.find( item => item.lang === lang)
+        const file = join(SRT_PATH, srt.file)
         message = await readFile(file, "utf-8")
 
       } else {

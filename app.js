@@ -5,10 +5,12 @@
 require('dotenv').config()
 require('./database')
 const express = require('express')
+const cors = require('cors')
 
 const PORT = process.env.PORT || 3000
 
 const app = express()
+app.use(cors())
 app.use(express.static('public'));
 app.use(express.json()) // for POST data converted to JSON
 app.use(express.urlencoded({ extended: true })) // for form data

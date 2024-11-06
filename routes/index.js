@@ -5,7 +5,9 @@ const {
   addFilm,
   getFilm,
   findFilms,
-  getSRT
+  getSRT,
+  getLanguages,
+  sample
 } = require('../controllers')
 
 
@@ -14,6 +16,8 @@ const routes = app => {
   app.get('/film/get', getFilm)
   app.get('/film/find', findFilms)
   app.get('/film/srt', getSRT)
+  app.get('/film/lang', getLanguages)
+  app.get('/film/sample', sample)
 }
 
 
