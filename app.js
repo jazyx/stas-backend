@@ -7,6 +7,8 @@ require('./database')
 const express = require('express')
 const cors = require('cors')
 
+const ping = require('./ping')
+
 const PORT = process.env.PORT || 3000
 
 const app = express()
@@ -17,12 +19,9 @@ app.use(express.urlencoded({ extended: true })) // for form data
 
 require('./routes')(app)
 
-app.get('/ping', (req, res) => {
-  const protocol = req.protocol
-  const host = req.headers.host
-  res.send(`<pre>Connected to ${protocol}://${host}
-${Date()}</pre>`)
-})
+// Route to test if the server is running
+app.get('/ping', ping)
+
 
 app.listen(PORT, logHostsToConsole)
 

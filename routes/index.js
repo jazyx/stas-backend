@@ -12,12 +12,12 @@ const {
 
 
 const routes = app => {
-  app.post('/film/add', addFilm)
-  app.get('/film/get', getFilm)
-  app.get('/film/find', findFilms)
-  app.get('/film/srt', getSRT)
-  app.get('/film/lang', getLanguages)
-  app.get('/film/sample', sample)
+  app.post('/add', addFilm)
+  app.get('/get', getFilm)
+  app.get('/find', findFilms)
+  app.get('/srt', getSRT)
+  app.get('/lang', getLanguages)
+  app.get('/sample', sample)
 }
 
 

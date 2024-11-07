@@ -1,10 +1,13 @@
 /* controllers/findFilms.js */
 
 const { Film } = require('../database')
+const ping = require("../ping.js")
 const treatUrls = require('./helpers/treatUrls')
 
 
 function sample(req, res) {
+  ping(req, null, "SAMPLE")
+
   const { query = {}, size = 12 } = req.body
 
   let message

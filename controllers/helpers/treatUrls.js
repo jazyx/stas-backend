@@ -4,6 +4,7 @@
 
 const { ROOT, THUMB, SRT } = process.env
 
+
 const treatUrls = films => {
   films.forEach(film => {
     film.thumbnail = `${ROOT}${THUMB}${film.thumbnail}`
