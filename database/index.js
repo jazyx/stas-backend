@@ -8,15 +8,16 @@
  */
 
 
-const DB = process.env.DB
+const { DB, dbName } = process.env
+const bd = DB.replace(/:\/\/.+@/, "://<username>:<password>@")
 
 const mongoose = require('mongoose')
 const Film = require("./models/Film.js")
 
 mongoose
-  .connect(DB)
+  .connect(DB, { dbName })
   .then(() => {
-    console.log(`Connected to ${DB}`)
+    console.log(`Connected to ${bd}`)
 
   })
   .catch( error => {
