@@ -13,11 +13,13 @@ const bd = DB.replace(/:\/\/.+@/, "://<username>:<password>@")
 
 const mongoose = require('mongoose')
 const Film = require("./models/Film.js")
+const seed = require('./seed.js')
 
 mongoose
   .connect(DB, { dbName })
   .then(() => {
     console.log(`Connected to ${bd}`)
+    seed(Film)
 
   })
   .catch( error => {
